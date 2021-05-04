@@ -7,7 +7,7 @@ const NavbarHome = () => {
                 <div className="relative flex items-center justify-between h-16">
 
 
-                    <div clasclassNames="hidden sm:block sm:ml-6">
+                    <div className="hidden sm:block sm:ml-6">
                         <div className="flex space-x-4">
                             <button className='bg-gray-900 text-white px-3 py-2 rounded-md text-sm m-3	'><Link to='/'>Home
                             </Link></button>
@@ -15,7 +15,7 @@ const NavbarHome = () => {
                     </div>
 
 
-                    <div claclassNamess="hidden sm:block sm:ml-6">
+                    <div className="hidden sm:block sm:ml-6">
                         <div className="flex space-x-4">
                             <button className='bg-gray-900 text-white px-3 py-2 rounded-md text-sm m-3	'>
                             <Link to='/login'>LogIn</Link></button>

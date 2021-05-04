@@ -20,7 +20,9 @@ class ProjectController extends Controller
 
 
         $projs = Project::all();
-        return $projs;
+        // $test = $projs->findUser();
+        // $projs = $projs + $test;
+        return response()->json($projs);
     }
     public function newProj()
     {

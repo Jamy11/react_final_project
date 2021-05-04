@@ -1,10 +1,16 @@
 import React from 'react'
+import Project from '../components/Project'
 
-const Projects = () => {
+
+
+const Projects = ({project}) => {
+    
     return (
-        <div>
-            
-        </div>
+        <>
+            {project.map((pro,index)=>
+            <Project key={index} pro={pro}/>
+            )}
+        </>
     )
 }
 
