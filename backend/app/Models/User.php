@@ -9,6 +9,8 @@ class User extends Model
 {
     use HasFactory;
 
+    protected $hidden = ['password'];
+
     public function hasproj()
     {
         return $this->hasMany(Project::class);

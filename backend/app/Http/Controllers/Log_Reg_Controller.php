@@ -20,24 +20,20 @@ class Log_Reg_Controller extends Controller
     {
         $user_x = User::where('email', $req->email)
             ->where('password', $req->password)
-            ->get();
+            ->first();
 
-        if(count($user_x) > 0)
+        if(!empty($user_x))
         {
-            $req->session()->put('id', $user_x[0]->id);
-
-            if($user_x[0]->user_type == 'admin')
+            if($user_x->user_type == 'admin')
             {
-                $req->session()->put('user_type', 'admin');
-                return redirect()->route('admin.index');
+                return $user_x;
             }
             else
             {
-                $req->session()->put('user_type', 'user');
-                return redirect()->route('user.home');
+                return $user_x;
             }
         }
-        return back();
+        return [];
     }
 
     public function reg_index()
