@@ -19,8 +19,8 @@ class ProjectController extends Controller
         // dd(gettype($subs->hassub->project_limit));
 
 
-        $projs = Project::paginate(2);
-        return view('welcome')->with('projs',$projs);
+        $projs = Project::all();
+        return $projs;
     }
     public function newProj()
     {
