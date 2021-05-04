@@ -48,8 +48,7 @@ class AdminController extends Controller
      */
     public function show($id)
     {
-        $user_x = User::find($id);
-        return view('admin.user_details')->with('user', $user_x);
+        return User::find($id);
     }
 
     public function show_profile()
