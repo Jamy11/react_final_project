@@ -48,7 +48,7 @@ Route::get('/admin/users/admin/{id}/delete', 'AdminController@destroy')->name('a
 
 /* User Routes */
 
-Route::get('/register','Log_Reg_Controller@reg_index')->name('register');
+//Route::get('/register','Log_Reg_Controller@reg_index')->name('register');
 Route::post('/register','Log_Reg_Controller@reg_check');
 
 

@@ -11,6 +11,7 @@ import {userContext} from './components/userContext'
 import NavbarUser from './navbar/NavbarUser';
 import UserDashboard from './pages/user/UserDashboard';
 import {LogOut} from './pages/LogOut';
+import Register from './pages/auth/Register';
 
 function App() {
   const [logout,setLogout] = useState(true);
@@ -35,10 +36,12 @@ console.log(loggedAdmin)
 
               <userContext.Provider value={{setLoggedUser,setLoggedAdmin,setLogout}}>
                 <Route path='/login' exact component={Login} />
-
+                <Route path='/register' exact component={Register} />
 
                 <Route path='/user/dashboard' exact component={UserDashboard} />
                 <Route path='/admin/dashboard' exact component={AdminDashboard} />
+
+                {/* <Route path='/view/:id' exact component={ViewProj}/> */}
 
                 <Route path='/logout' exact component={LogOut}/>
               </userContext.Provider>      
