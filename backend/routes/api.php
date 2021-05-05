@@ -22,7 +22,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', 'ProjectController@index')->name('home');
 
 /* Common */
-Route::get('/login','Log_Reg_Controller@login_index')->name('login');
+// Route::get('/login','Log_Reg_Controller@login_index')->name('login');
 Route::post('/login','Log_Reg_Controller@login_check');
 Route::get('/logout','LogOutController@index')->name('logout');
 

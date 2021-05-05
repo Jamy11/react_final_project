@@ -4,29 +4,47 @@ import axiosFetch from './components/axiosFetch';
 import Projects from './components/Projects';
 import useFetch from './components/useFetch';
 import NavbarHome from './navbar/NavbarHome';
+import AdminDashboard from './pages/admin/AdminDashboard';
 import Login from './pages/auth/Login';
 import Home from './pages/Home';
-
+import {userContext} from './components/userContext'
+import NavbarUser from './navbar/NavbarUser';
+import UserDashboard from './pages/user/UserDashboard';
+import {LogOut} from './pages/LogOut';
 
 function App() {
   const [logout,setLogout] = useState(true);
   const [loggedUser,setLoggedUser] = useState(false);
   const [loggedAdmin,setLoggedAdmin] = useState(false);
 
-
-
+console.log(loggedUser)
+console.log(loggedAdmin)
 
 
   return (
     <div>
       <Router>
         {logout && <NavbarHome/>}
-        {loggedUser && <NavbarHome/>}
+        {loggedUser && <NavbarUser/>}
         {loggedAdmin && <NavbarHome/>}
+
+
+
           <Switch>
-              <Route path='/' exact  component={Home}/>
-              <Route path='/login' exact component={Login} />
+                <Route path='/' exact  component={Home}/>
+
+              <userContext.Provider value={{setLoggedUser,setLoggedAdmin,setLogout}}>
+                <Route path='/login' exact component={Login} />
+
+
+                <Route path='/user/dashboard' exact component={UserDashboard} />
+                <Route path='/admin/dashboard' exact component={AdminDashboard} />
+
+                <Route path='/logout' exact component={LogOut}/>
+              </userContext.Provider>      
           </Switch>
+
+
       </Router>
       
     </div>

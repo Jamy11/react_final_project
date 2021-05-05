@@ -5,18 +5,19 @@ namespace App\Http\Controllers;
 use App\Http\Requests\LoginRequest;
 use App\Http\Requests\RegisterRequest;
 use App\Models\User;
+use Error;
 use Illuminate\Http\Request;
 
 class Log_Reg_Controller extends Controller
 {
     //
-    public function login_index()
-    {
+    // public function login_index()
+    // {
 
-        return view('auth.login');
-    }
+    //     return view('auth.login');
+    // }
 
-    public function login_check(LoginRequest $req)
+    public function login_check(Request $req)
     {
         $user_x = User::where('email', $req->email)
             ->where('password', $req->password)
@@ -24,20 +25,24 @@ class Log_Reg_Controller extends Controller
 
         if(count($user_x) > 0)
         {
-            $req->session()->put('id', $user_x[0]->id);
+            //$req->session()->put('id', $user_x[0]->id);
 
-            if($user_x[0]->user_type == 'admin')
-            {
-                $req->session()->put('user_type', 'admin');
-                return redirect()->route('admin.index');
-            }
-            else
-            {
-                $req->session()->put('user_type', 'user');
-                return redirect()->route('user.home');
-            }
+            // if($user_x[0]->user_type == 'admin')
+            // {
+            //     $req->session()->put('user_type', 'admin');
+            //     return redirect()->route('admin.index');
+            // }
+            // else
+            // {
+            //     $req->session()->put('user_type', 'user');
+            //     return redirect()->route('user.home');
+            // }
+            return $user_x;
         }
-        return back();
+        else{
+            // return back()->withErrors('email or password dont maych');
+            return ['errpr'=>'password dont match'];
+        }
     }
 
     public function reg_index()
