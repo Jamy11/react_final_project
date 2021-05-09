@@ -31,7 +31,7 @@ Route::resource('admin', 'AdminController')->only(['show', 'update']);
 
 /* User Routes */
 
-Route::get('/register','Log_Reg_Controller@reg_index')->name('register');
+//Route::get('/register','Log_Reg_Controller@reg_index')->name('register');
 Route::post('/register','Log_Reg_Controller@reg_check');
 
 

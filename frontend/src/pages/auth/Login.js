@@ -25,9 +25,11 @@ const Login = ({callbacks}) => {
       setCurrentUser(responseData);
       if(responseData.user_type === 'admin') {
         setLoggedAdmin(true);
+        localStorage.setItem('user-info',JSON.stringify(data));
         history.push('/admin/dashboard');
       } else {
         setLoggedUser(true);
+        localStorage.setItem('user-info',JSON.stringify(data));
         history.push('/user/dashboard');
       }
     }
@@ -43,7 +45,7 @@ const Login = ({callbacks}) => {
         <div className="flex items-center justify-center">
         <div className="w-full max-w-md">
           <form onSubmit={validateUser} className="bg-white shadow-lg rounded px-12 pt-6 pb-8 mb-4">
-            
+           
             <div
               className="text-gray-800 text-2xl flex justify-center border-b-2 py-2 mb-4"
             >

@@ -4,6 +4,7 @@ import axiosFetch from './components/axiosFetch';
 import Projects from './components/Projects';
 import useFetch from './components/useFetch';
 import NavbarHome from './navbar/NavbarHome';
+import AdminDashboard from './pages/admin/AdminDashboard';
 import Login from './pages/auth/Login';
 import Home from './pages/Home';
 import AdminDashboard from "./pages/admin/Dashboard";
@@ -11,7 +12,6 @@ import NavbarAdmin from "./navbar/NavbarAdmin";
 import {UserContext} from "./components/UserContext";
 import AdminProfile from "./pages/admin/Profile";
 import Logout from "./pages/auth/Logout";
-
 
 function App() {
   const [logout,setLogout] = useState(true);
@@ -45,6 +45,8 @@ function App() {
                   : <Redirect to="/404" />
               }
           </Switch>
+
+
       </Router>
       
     </div>
