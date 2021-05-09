@@ -48,26 +48,18 @@ class AdminController extends Controller
      */
     public function show($id)
     {
-        $user_x = User::find($id);
-        return view('admin.user_details')->with('user', $user_x);
-    }
-
-    public function show_profile()
-    {
-        $id = session()->get('id');
-        $user_x = User::find($id);
-        return view('admin.profile')->with('user', $user_x);
+        return User::find($id);
     }
 
     public function user_list()
     {
         $users = User::where('user_type', '!=', 'admin')->get();
-        return view('admin.user_list')->with('users', $users);
+        return $users;
     }
     public function admin_list()
     {
-        $users = User::where('user_type', 'admin')->get();
-        return view('admin.user_list')->with('users', $users);
+        $admins = User::where('user_type', 'admin')->get();
+        return $admins;
     }
 
     /**
